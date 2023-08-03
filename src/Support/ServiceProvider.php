@@ -1,6 +1,6 @@
 <?php
 
-namespace Varenykylocale\Support;
+namespace VarenykyLocale\Support;
 
 use Illuminate\Support\ServiceProvider as BaseServiceProvider;
 

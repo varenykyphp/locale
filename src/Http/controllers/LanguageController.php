@@ -10,7 +10,7 @@ class LanguageController extends BaseController
 
     public function index(): View
     {
-        $Lanuages = language::all();
+        $Lanuages = Language::all();
         return view('varenyky::menus.index', compact('Lanuage'));
     }
 

@@ -2,55 +2,57 @@
 
 namespace VarenykyLocale\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use VarenykyLocale\Models\Language\Language;
+use VarenykyLocale\Repositories\LanguageRepository;
 
 class LanguageController extends BaseController
 {
+    public function __construct(LanguageRepository $repository)
+    {
+        $this->repository = $repository;
+    }
 
     public function index(): View
     {
-        $Lanuages = Language::all();
-        return view('varenyky::menus.index', compact('Lanuage'));
+        $Lanuages = $this->repository->getAll();
+        return view('varenykyLocale::languages.index', compact('Lanuages'));
     }
 
     public function create(): View
     {
-        return view('varenyky::menus.create');
+        return view('varenykyLocale::languages.create');
     }
 
     public function store(Request $request): RedirectResponse
     {
         $create = $request->except(['_token']);
-        $create['slug'] = Str::slug($create['name']);
+        $lanuages = $this->repository->create($create);
 
-        $menus = $this->repository->create($create);
-
-        return redirect()->route('admin.menus.index')->with('success', __('varenyky::labels.added'));
+        return redirect()->route('admin.languages.index')->with('success', __('varenyky::labels.added'));
     }
 
-    public function edit(Menu $menu): View
+    public function edit(Language $language): View
     {
-        return view('varenyky::menus.edit', compact('menu'));
+        return view('varenykyLocale::languages.edit', compact('language'));
     }
 
-    public function update(Request $request, Menu $menu): RedirectResponse
+    public function update(Request $request, Language $language): RedirectResponse
     {
         $update = array_filter($request->except(['_token', '_method']));
-        $this->repository->update($menu->id, $update);
+        $this->repository->update($language->id, $update);
 
-        return redirect()->route('admin.menus.edit', $menu->id)->with('success', __('varenyky::labels.updated'));
+        return redirect()->route('admin.languages.edit', $language->id)->with('success', __('varenyky::labels.updated'));
     }
 
-    public function destroy(Menu $menu): RedirectResponse
+    public function destroy(Language $language): RedirectResponse
     {
-        $menuItem = MenuItem::where('menu_id',$menu->id)->get();
-        foreach( $menuItem  as $item){
-            $item->delete();
-        }
         
-        $menu->delete();
+        $language->delete();
 
-        return redirect()->route('admin.menus.index')->with('error', __('varenyky::labels.deleted'));
+        return redirect()->route('admin.languages.index')->with('error', __('varenyky::labels.deleted'));
     }
 }

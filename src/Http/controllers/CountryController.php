@@ -2,55 +2,57 @@
 
 namespace VarenykyLocale\Http\Controllers;
 
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Str;
 use VarenykyLocale\Models\Country\Country;
+use VarenykyLocale\Repositories\CountryRepository;
 
 class CountryController extends BaseController
 {
+    public function __construct(CountryRepository $repository)
+    {
+        $this->repository = $repository;
+    }
 
     public function index(): View
     {
-        $Lanuages = Country::all();
-        return view('varenyky::menus.index', compact('Lanuage'));
+        $countries = $this->repository->getAll();
+        return view('varenykyLocale::country.index', compact('countries'));
     }
 
     public function create(): View
     {
-        return view('varenyky::menus.create');
+        return view('varenykyLocale::country.create');
     }
 
     public function store(Request $request): RedirectResponse
     {
         $create = $request->except(['_token']);
-        $create['slug'] = Str::slug($create['name']);
+        $Country = $this->repository->create($create);
 
-        $menus = $this->repository->create($create);
-
-        return redirect()->route('admin.menus.index')->with('success', __('varenyky::labels.added'));
+        return redirect()->route('admin.country.index')->with('success', __('varenyky::labels.added'));
     }
 
-    public function edit(Menu $menu): View
+    public function edit(Country $country): View
     {
-        return view('varenyky::menus.edit', compact('menu'));
+        return view('varenykyLocale::country.edit', compact('country'));
     }
 
-    public function update(Request $request, Menu $menu): RedirectResponse
+    public function update(Request $request, Country $country): RedirectResponse
     {
         $update = array_filter($request->except(['_token', '_method']));
-        $this->repository->update($menu->id, $update);
+        $this->repository->update($country->id, $update);
 
-        return redirect()->route('admin.menus.edit', $menu->id)->with('success', __('varenyky::labels.updated'));
+        return redirect()->route('admin.country.edit', $country->id)->with('success', __('varenyky::labels.updated'));
     }
 
-    public function destroy(Menu $menu): RedirectResponse
+    public function destroy(Country $country): RedirectResponse
     {
-        $menuItem = MenuItem::where('menu_id',$menu->id)->get();
-        foreach( $menuItem  as $item){
-            $item->delete();
-        }
         
-        $menu->delete();
+        $country->delete();
 
-        return redirect()->route('admin.menus.index')->with('error', __('varenyky::labels.deleted'));
+        return redirect()->route('admin.country.index')->with('error', __('varenyky::labels.deleted'));
     }
 }

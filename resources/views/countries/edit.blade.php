@@ -1,16 +1,16 @@
 @extends('varenykyAdmin::app')
 
-@section('title', __('varenykyLocale::admin.country.edit.title'))
+@section('title', __('varenykyLocale::admin.countries.edit.title'))
 
 @section('content_header')
-    <strong>{{ __('varenykyLocale::admin.country.edit.title') }}</strong>
+    <strong>{{ __('varenykyLocale::admin.countries.edit.title') }}</strong>
 @stop
 
-@section('save-btn', route('admin.country.update', $country))
-@section('back-btn', route('admin.country.index'))
+@section('save-btn', route('admin.countries.update', $country))
+@section('back-btn', route('admin.countries.index'))
 
 @section('content')
-    <form action="{{ route('admin.country.update', $country) }}" method="POST" id="nopulpForm" enctype="multipart/form-data">
+    <form action="{{ route('admin.countries.update', $country) }}" method="POST" id="nopulpForm" enctype="multipart/form-data">
         @csrf
         @method('PUT')
         <div class="row">

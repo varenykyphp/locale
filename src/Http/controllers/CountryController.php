@@ -19,12 +19,12 @@ class CountryController extends BaseController
     public function index(): View
     {
         $countries = $this->repository->getAll();
-        return view('varenykyLocale::country.index', compact('countries'));
+        return view('varenykyLocale::countries.index', compact('countries'));
     }
 
     public function create(): View
     {
-        return view('varenykyLocale::country.create');
+        return view('varenykyLocale::countries.create');
     }
 
     public function store(Request $request): RedirectResponse
@@ -32,12 +32,12 @@ class CountryController extends BaseController
         $create = $request->except(['_token']);
         $Country = $this->repository->create($create);
 
-        return redirect()->route('admin.country.index')->with('success', __('varenyky::labels.added'));
+        return redirect()->route('admin.countries.index')->with('success', __('varenyky::labels.added'));
     }
 
     public function edit(Country $country): View
     {
-        return view('varenykyLocale::country.edit', compact('country'));
+        return view('varenykyLocale::countries.edit', compact('country'));
     }
 
     public function update(Request $request, Country $country): RedirectResponse
@@ -45,7 +45,7 @@ class CountryController extends BaseController
         $update = array_filter($request->except(['_token', '_method']));
         $this->repository->update($country->id, $update);
 
-        return redirect()->route('admin.country.edit', $country->id)->with('success', __('varenyky::labels.updated'));
+        return redirect()->route('admin.countries.edit', $country->id)->with('success', __('varenyky::labels.updated'));
     }
 
     public function destroy(Country $country): RedirectResponse
@@ -53,6 +53,6 @@ class CountryController extends BaseController
         
         $country->delete();
 
-        return redirect()->route('admin.country.index')->with('error', __('varenyky::labels.deleted'));
+        return redirect()->route('admin.countries.index')->with('error', __('varenyky::labels.deleted'));
     }
 }

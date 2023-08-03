@@ -1,12 +1,12 @@
 @extends('varenykyAdmin::app')
 
-@section('title', __('varenykyLocale::admin.country.index.title'))
+@section('title', __('varenykyLocale::admin.countries.index.title'))
 
 @section('content_header')
-    <strong>{{ __('varenykyLocale::admin.country.index.title') }}</strong>
+    <strong>{{ __('varenykyLocale::admin.countries.index.title') }}</strong>
 @stop
 
-@section('create-btn', route('admin.country.create'))
+@section('create-btn', route('admin.countries.create'))
 
 @section('content')
     <div class="card border p-3">
@@ -24,7 +24,7 @@
                         <td>{{ $country->name }}</td>
                         <td>{{ $country->iso }}</td>
                         <td align="right">
-                            @include('varenykyAdmin::actions', ['route' => 'admin.country', 'entity' => $country])
+                            @include('varenykyAdmin::actions', ['route' => 'admin.countries', 'entity' => $country])
                         </td>
                     </tr>
                 @empty

@@ -1,17 +1,17 @@
 @extends('varenykyAdmin::app')
 
-@section('title', __('varenykyLocale::admin.country.create.title'))
+@section('title', __('varenykyLocale::admin.countries.create.title'))
 
 @section('content_header')
-    <strong>{{ __('varenykyLocale::admin.country.create.title') }}</strong>
+    <strong>{{ __('varenykyLocale::admin.countries.create.title') }}</strong>
 @stop
 
-@section('save-btn', route('admin.country.store'))
-@section('back-btn', route('admin.country.index'))
+@section('save-btn', route('admin.countries.store'))
+@section('back-btn', route('admin.countries.index'))
 
 @section('content')
 
-        <form action="{{ route('admin.country.store') }}" method="POST" id="nopulpForm" enctype="multipart/form-data">
+        <form action="{{ route('admin.countries.store') }}" method="POST" id="nopulpForm" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-12 col-lg-12">

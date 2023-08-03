@@ -13,9 +13,9 @@ return [
                
         
     ],
-    'country'=>[
+    'countries'=>[
         'index'=>[
-             'title'=>'country',
+             'title'=>'countries',
         ],
         'create'=>[
              'title'=>'Create country',

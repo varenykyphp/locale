@@ -1,6 +1,6 @@
 {
-    "name": "varenykyphp/cms",
-    "description": "VarenykyPHP: Laravel-Based CMS Engineered For Simplicity",
+    "name": "varenykyphp/locale",
+    "description": "VarenykyPHP Locale package",
     "license": "proprietary",
     "authors": [
         {
@@ -10,34 +10,22 @@
     ],
     "require": {
         "php": "^8.1",
-        "doctrine/dbal": "^3.6",
-        "guzzlehttp/guzzle": "^7.3",
-        "laravel/framework": "^10.10",
-        "laravel/tinker": "^2.8",
-        "spatie/laravel-permission": "^5.10",
-        "varenykyphp/cms": "1.0.0"
     },
     "require-dev": {
-        "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
-        "laravel/sail": "^1.18",
-        "mockery/mockery": "^1.4.4",
-        "nunomaduro/collision": "^7.0",
-        "phpunit/phpunit": "^10.1",
-        "spatie/laravel-ignition": "^2.0"
     },
     "autoload": {
         "files": [
             "src/helpers.php"
         ],
         "psr-4": {
-            "Varenykylocale\\": "/src"
+            "VarenykyLocale\\": "/src"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Varenykylocale\\Support\\ServiceProvider"
+                "VarenykyLocale\\Support\\ServiceProvider"
             ]
         }
     },

@@ -2,7 +2,7 @@
 
 namespace VarenykyLocale\Repositories;
 
-use VarenykyLocale\Models\Country\Country;
+use VarenykyLocale\Models\Country;
 
 class CountryRepository extends Repository
 {

@@ -6,7 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
-use VarenykyLocale\Models\Country\Country;
+use VarenykyLocale\Models\Country;
 use VarenykyLocale\Repositories\CountryRepository;
 
 class CountryController extends BaseController

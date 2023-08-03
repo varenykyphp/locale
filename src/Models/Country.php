@@ -1,6 +1,6 @@
 <?php
 
-namespace VarenykyLocale\Models\Country;
+namespace VarenykyLocale\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

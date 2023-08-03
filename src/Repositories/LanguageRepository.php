@@ -2,7 +2,7 @@
 
 namespace VarenykyLocale\Repositories;
 
-use VarenykyLocale\Models\Language\Language;
+use VarenykyLocale\Models\Language;
 
 class LanguageRepository extends Repository
 {

@@ -6,7 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Illuminate\Support\Str;
-use VarenykyLocale\Models\Language\Language;
+use VarenykyLocale\Models\Language;
 use VarenykyLocale\Repositories\LanguageRepository;
 
 class LanguageController extends BaseController

@@ -1,9 +1,9 @@
 <?php
 
-namespace Varenyky\Http\Controllers;
+namespace VarenykyLocale\Http\Controllers;
 
 use Illuminate\View\View;
-use Varenyky\Models\Language\Language;
+use VarenykyLocale\Models\Language\Language;
 
 class LanguageController extends BaseController
 {

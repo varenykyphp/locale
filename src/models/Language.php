@@ -1,6 +1,6 @@
 <?php
 
-namespace Varenyky\Models\Language;
+namespace VarenykyLocale\Models\Language;
 
 use Illuminate\Database\Eloquent\Model;
 

@@ -22,9 +22,5 @@ class ServiceProvider extends BaseServiceProvider
         $this->loadRoutesFrom(__DIR__.'/../../routes/locale.php');
         $this->loadViewsFrom(__DIR__.'/../../resources/views', 'varenykyLocale');
         $this->loadTranslationsFrom(__DIR__.'/../../resources/lang', 'varenykyLocale');
-
-        $this->publishes([
-            __DIR__.'/../../config/locale.php' => config_path('locale.php'),
-        ]);
     }
 }

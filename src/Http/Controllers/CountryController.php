@@ -50,7 +50,6 @@ class CountryController extends BaseController
 
     public function destroy(Country $country): RedirectResponse
     {
-        
         $country->delete();
 
         return redirect()->route('admin.countries.index')->with('error', __('varenyky::labels.deleted'));

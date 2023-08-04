@@ -50,7 +50,6 @@ class LanguageController extends BaseController
 
     public function destroy(Language $language): RedirectResponse
     {
-        
         $language->delete();
 
         return redirect()->route('admin.languages.index')->with('error', __('varenyky::labels.deleted'));

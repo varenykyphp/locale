@@ -3,6 +3,7 @@
 namespace VarenykyLocale\Repositories;
 
 use VarenykyLocale\Models\Country;
+use Varenyky\Repositories\Repository;
 
 class CountryRepository extends Repository
 {

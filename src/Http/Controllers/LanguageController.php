@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use VarenykyLocale\Models\Language;
 use VarenykyLocale\Repositories\LanguageRepository;
+use Varenyky\Http\Controllers\BaseController;
 
 class LanguageController extends BaseController
 {

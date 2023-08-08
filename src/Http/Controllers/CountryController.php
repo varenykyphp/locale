@@ -8,6 +8,7 @@ use Illuminate\View\View;
 use Illuminate\Support\Str;
 use VarenykyLocale\Models\Country;
 use VarenykyLocale\Repositories\CountryRepository;
+use Varenyky\Http\Controllers\BaseController;
 
 class CountryController extends BaseController
 {
